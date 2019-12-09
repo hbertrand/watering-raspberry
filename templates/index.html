@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Carnet de santé de mes chères plantes</title>
+    <meta http-equiv="refresh" content="60" >
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+     <h1>Carnet de santé de mes chères plantes</h1>
+     <h2>Plante 1</h2>
+     <table>
+       <tr>
+         <th>Derniers arrosages</th>
+       </tr>
+       {% for log in plant_log %}
+       <tr><td>{{ log }}</td></tr>
+       {% endfor %}
+     </table>
+  </body>
+</html>
