@@ -7,12 +7,22 @@
   </head>
   <body>
      <h1>Carnet de santé de mes chères plantes</h1>
-     <h2>Plante 1</h2>
+     <h2>Plante 1 (Grosse plante)</h2>
      <table>
        <tr>
          <th>Derniers arrosages</th>
        </tr>
-       {% for log in plant_log %}
+       {% for log in plant_log_1 %}
+       <tr><td>{{ log }}</td></tr>
+       {% endfor %}
+     </table>
+
+     <h2>Plante 2 (Petite plante)</h2>
+     <table>
+       <tr>
+         <th>Derniers arrosages</th>
+       </tr>
+       {% for log in plant_log_2 %}
        <tr><td>{{ log }}</td></tr>
        {% endfor %}
      </table>

@@ -5,10 +5,9 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello():
+def read_plant_log(index):
     plant_log = []
-    with open('static/plant_log.csv', 'r') as f:
+    with open('static/plant_log_{}.csv'.format(index), 'r') as f:
         reader = csv.reader(f)
 
         for row in reader:
@@ -19,7 +18,15 @@ def hello():
     if len(plant_log) > 20:
         plant_log = plant_log[-20:]
 
-    return render_template('index.html', plant_log=plant_log)
+    return plant_log
+
+
+@app.route('/')
+def hello():
+    plant_log_1 = read_plant_log(1)
+    plant_log_2 = read_plant_log(2)
+
+    return render_template('index.html', plant_log_1=plant_log_1, plant_log_2=plant_log_2)
 
 
 if __name__ == "__main__":
